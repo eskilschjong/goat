@@ -58,7 +58,7 @@ public class DynamicNetMesh : MonoBehaviour
         float u = isLeftSide ? 0f : 1f;
         
         // Vertical UV: 0 (bottom) to 1 (top) based on vertical position
-        float v = (float)(i % 4) / 3f; // 4 vertical points = 3 segments
+        float v = 1f - (float)(i % 4) / 3f; // 4 vertical points = 3 segments
         
         uvs[i] = new Vector2(u, v);
     }

@@ -100,6 +100,17 @@ public class Ball : MonoBehaviour
     }
     private bool netCollided = false;
     private bool stopBouncing = false;
+    private bool throughRim = false;
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+    if (other.CompareTag("Rim"))
+        {
+            // Goal detected
+            throughRim = true;
+            // Execute scoring logic here
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -113,9 +124,10 @@ public class Ball : MonoBehaviour
         {
             PlaySound(rimHit);
         }
-        else if (collision.gameObject.CompareTag("Net") && !netCollided)
+        else if (collision.gameObject.CompareTag("Net") && !netCollided && throughRim)
         {
             PlaySound(netHit);
+            Debug.Log("Score!");
             netCollided = true;
         }
         else if (collision.gameObject.CompareTag("Floor"))
@@ -133,6 +145,7 @@ public class Ball : MonoBehaviour
         }
 
     }
+
 
     private void PlaySound(AudioClip clip)
     {
