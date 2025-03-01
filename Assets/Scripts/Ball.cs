@@ -3,11 +3,12 @@ using TMPro;
 
 public class Ball : MonoBehaviour
 {
+    public LevelManager levelManager;
     public TextMeshProUGUI directionText;
     public TextMeshProUGUI forceText;
     public GameObject arrowObject;
 
-    public float forceLevel = 0f;
+    public float forceLevel = 5f;
     public float maxForceLevel = 20f;
     public float direction1 = 5f, direction2 = 5f;
 
@@ -36,6 +37,8 @@ public class Ball : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+        int highestUnlocked = PlayerPrefs.GetInt("HighestUnlockedLevel", 1);
+        Debug.Log("Highest unlocked level: " + highestUnlocked);
     }
     
 
@@ -126,9 +129,9 @@ public class Ball : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Net") && !netCollided && throughRim)
         {
-            PlaySound(netHit);
-            Debug.Log("Score!");
             netCollided = true;
+            PlaySound(netHit);
+            levelManager.IncreaseScore();
         }
         else if (collision.gameObject.CompareTag("Floor"))
         {

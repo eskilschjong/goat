@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1699e9f2eb2ac8d4bb155e78c245b8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 6131241569149306702, guid: c3c7f9ca852a8e44bb2a607d8b447fb6, type: 3}
   directionText: {fileID: 8552637741060312297, guid: ef4b7d0b01bab954489a2c1843e5fc10, type: 3}
   forceText: {fileID: 7763022807074089465, guid: 617a23995dd5b6c40ae5c4f404e0fc2d, type: 3}
   arrowObject: {fileID: 0}
@@ -172,3 +173,7 @@ MonoBehaviour:
   maxForceLevel: 15
   direction1: 5
   direction2: 5
+  backboardHit: {fileID: 0}
+  rimHit: {fileID: 0}
+  netHit: {fileID: 0}
+  floorHit: {fileID: 0}
