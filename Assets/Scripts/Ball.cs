@@ -22,6 +22,8 @@ public class Ball : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private bool ballShot = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -59,8 +61,9 @@ public class Ball : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (rb != null)
+            if (rb != null && ballShot == false)
             {
+                ballShot = true;
                 Vector2 force = new Vector2(direction1, direction2).normalized * forceLevel;
                 rb.AddForce(force, ForceMode2D.Impulse);
                 rb.AddTorque(0.1f, ForceMode2D.Impulse);

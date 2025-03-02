@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject winScreen;
     public int currentLevel;
     public int currentScore = 0;
     public int requiredScore = 1;
+    private AudioSource audioSource;
+
+    public AudioClip WinSound;
 
     void Start()
     {
@@ -32,11 +37,25 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.Save();
             Debug.Log("Level " + (currentLevel + 1) + " unlocked!");
         }
+        StartCoroutine(ShowWinScreenWithDelay());
+    }
+
+    private IEnumerator ShowWinScreenWithDelay()
+    {
+        yield return new WaitForSeconds(2);
+        winScreen.SetActive(true);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(WinSound);
     }
 
     public void goToLevelSelect ()
     {
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void goToNextLevel()
+    {
+        SceneManager.LoadScene(currentLevel + 1);
     }
 }
 
