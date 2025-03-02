@@ -9,6 +9,8 @@ TagManager:
   - Net
   - Floor
   - Win
+  - LevelSelect
+  - StartMenu
   layers:
   - Default
   - TransparentFX
