@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 82431382126425032}
   - component: {fileID: 3012335850826508818}
   m_Layer: 0
-  m_Name: Sky
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -1817037104350664956, guid: d2c463d50e58c7c42bbbb3d332e51bde, type: 3}
+  m_Sprite: {fileID: 7512597542653385031, guid: e7aba290522073d41b70c9e3ebead7a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
